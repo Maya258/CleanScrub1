@@ -22,6 +22,7 @@
 
   <nav class="nav">
     <a href="#home">Home</a>
+    <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
@@ -36,6 +37,30 @@
     <button onclick="openWhatsApp()">Book on WhatsApp</button>
   </div>
 </section>
+
+<!-- ABOUT -->
+<section id="about" class="section about">
+  <div class="about-content blur-bg animate">
+    <h2>About Clean Scrub</h2>
+    <p>
+      Clean Scrub is a proudly local car wash in Gqeberha, dedicated to keeping
+      your vehicle looking its absolute best. We believe a clean car is more
+      than just appearance — it's about care, pride, and attention to detail.
+    </p>
+
+    <p>
+      Our trained team uses safe, high-quality products and proven techniques
+      to protect your paintwork while delivering a spotless finish every time.
+      From quick washes to full valet services, we treat every vehicle as if it
+      were our own.
+    </p>
+
+    <p class="highlight">
+      At Clean Scrub, we don’t just wash cars — we pamper them with love. 
+  </div>
+</section>
+
+
 
 <!-- SERVICES -->
 <section id="services" class="section">
@@ -97,6 +122,29 @@
   </ul>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <h2>Our Work</h2>
+
+  <div class="gallery">
+    <img src="Media (15).jfif" alt="Car Wash 1" onclick="toggleColor(this)">
+    <img src="Media (16).jfif" alt="Car Wash 2" onclick="toggleColor(this)">
+    <img src="Media (17).jfif" alt="Car Wash 3" onclick="toggleColor(this)">
+    <img src="Media (18).jfif" alt="Car Wash 4" onclick="toggleColor(this)">
+    <img src="Media (19).jfif" alt="Car Wash 5" onclick="toggleColor(this)">
+  </div>
+</section>
+
+<!-- POPUP MODAL -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <h2>Special Offer</h2>
+    <p>Get 5% off your first car wash. Book now on WhatsApp!</p>
+    <button class="popup-btn" onclick="openWhatsApp()">Book Now</button>
+  </div>
+</div>
+
 <!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact Us</h2>
@@ -117,3 +165,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+

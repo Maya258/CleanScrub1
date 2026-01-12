@@ -264,7 +264,7 @@ body {
    ======================== */
 .contact {
   background: #fff; 
-  padding: 80px 20px 120px 20px; 
+  padding: 80px 20px 40px 20px; /* reduced bottom padding from 120px → 40px */
   color: #040b29; 
   text-align: center;
 }
@@ -280,7 +280,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
   gap: 20px;
   justify-content: center;
-  margin-bottom: 60px; 
+  margin-bottom: 30px; /* reduced from 60px → 30px */
 }
 
 .contact-card {
@@ -316,6 +316,7 @@ body {
 
 .directions-btn-container {
   margin-top: 15px;
+  margin-bottom: 30px; /* add small space between button and map */
   text-align: center;
 }
 
@@ -335,8 +336,6 @@ body {
   background: #0088bb; 
   transform: scale(1.05);
 }
-
-
 
 /* ========================
    FOOTER
@@ -478,3 +477,4 @@ footer {
     font-size: 14px;
   }
 }
+

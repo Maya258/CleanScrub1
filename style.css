@@ -112,9 +112,9 @@ body {
   text-align: center;
   padding: 40px;
   border-radius: 15px;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1); /* translucent */
-  color: #fff;
+  color: #040b29;
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;

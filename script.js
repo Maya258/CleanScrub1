@@ -16,3 +16,34 @@ window.addEventListener("load", () => {
     btn.style.transform = "scale(1)";
   }, 300);
 });
+
+const aboutContent = document.querySelector(".about-content");
+
+function revealAbout() {
+  const windowHeight = window.innerHeight;
+  const revealTop = aboutContent.getBoundingClientRect().top;
+
+  if (revealTop < windowHeight - 100) {
+    aboutContent.classList.add("visible");
+    window.removeEventListener("scroll", revealAbout);
+  }
+}
+
+window.addEventListener("scroll", revealAbout);
+window.addEventListener("load", revealAbout);
+
+const popup = document.getElementById("popup");
+
+// Show popup after 3 seconds
+setTimeout(() => {
+  popup.classList.add("show");
+}, 3000);
+
+function closePopup() {
+  popup.classList.remove("show");
+}
+
+function toggleColor(image) {
+  image.classList.toggle("color");
+}
+

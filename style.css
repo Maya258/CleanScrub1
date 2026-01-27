@@ -170,6 +170,35 @@ body {
 /* ========================
    CARDS
    ======================== */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg,
+    #d0e3ff,
+    #0aa2dd,
+    #4facfe
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-size: 600% 600%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -177,18 +206,25 @@ body {
 }
 
 .card {
-  background: white;
+  background: #ffffff;
+  border-radius: 14px;
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  border: 1px solid #e3e7ee;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
   text-align: center;
+  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(10, 162, 221, 0.12);
 }
+
 
 .card h3 {
   margin-bottom: 10px;
@@ -374,6 +410,38 @@ footer {
 /* ========================
    POPUP MODAL
    ======================== */
+/* HEART CONFETTI */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999; /* MUST be higher than popup */
+}
+
+.heart {
+  position: absolute;
+  top: -20px;
+  font-size: 20px;
+  animation: fall linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -477,5 +545,3 @@ footer {
     font-size: 14px;
   }
 }
-
-

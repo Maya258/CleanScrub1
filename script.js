@@ -1,3 +1,6 @@
+/* =========================
+   WHATSAPP BOOKING
+   ========================= */
 function openWhatsApp() {
   const phone = "27670626007";
   const message = "Hi Clean Scrub, I would like to book a car wash.";
@@ -5,8 +8,13 @@ function openWhatsApp() {
   window.open(url, "_blank");
 }
 
+/* =========================
+   WHATSAPP BUTTON ANIMATION
+   ========================= */
 window.addEventListener("load", () => {
   const btn = document.querySelector(".whatsapp-btn");
+  if (!btn) return;
+
   btn.style.opacity = "0";
   btn.style.transform = "scale(0.5)";
 
@@ -17,9 +25,14 @@ window.addEventListener("load", () => {
   }, 300);
 });
 
+/* =========================
+   ABOUT SECTION REVEAL
+   ========================= */
 const aboutContent = document.querySelector(".about-content");
 
 function revealAbout() {
+  if (!aboutContent) return;
+
   const windowHeight = window.innerHeight;
   const revealTop = aboutContent.getBoundingClientRect().top;
 
@@ -32,18 +45,60 @@ function revealAbout() {
 window.addEventListener("scroll", revealAbout);
 window.addEventListener("load", revealAbout);
 
+/* =========================
+   HEART CONFETTI (COUPLES ONLY)
+   ========================= */
+function createHearts() {
+  const container = document.getElementById("hearts");
+  if (!container) return;
+
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+    heart.style.fontSize = 16 + Math.random() * 14 + "px";
+
+    container.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+
+/* =========================
+   POPUP LOGIC
+   ========================= */
 const popup = document.getElementById("popup");
 
 // Show popup after 3 seconds
 setTimeout(() => {
+  if (!popup) return;
+
   popup.classList.add("show");
+
+  // Hearts ONLY for Couples Special popup
+  if (popup.classList.contains("couples-popup")) {
+    createHearts();
+  }
 }, 3000);
 
+// Close popup
 function closePopup() {
+  if (!popup) return;
+
   popup.classList.remove("show");
+
+  const heartsContainer = document.getElementById("hearts");
+  if (heartsContainer) {
+    heartsContainer.innerHTML = "";
+  }
 }
 
+/* =========================
+   IMAGE COLOR TOGGLE
+   ========================= */
 function toggleColor(image) {
   image.classList.toggle("color");
 }
-

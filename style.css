@@ -405,7 +405,7 @@ body {
 }
 
 /* ==============================
-   BOOK NOW BUTTON 
+   BOOK NOW BUTTON - STYLISH RECTANGLE
    ============================== */
 .card-content button {
   background: linear-gradient(135deg, #0aa2dd, #4facfe);
@@ -439,6 +439,7 @@ body {
     width: 80%;
   }
 }
+
 
 
 /* ========================
@@ -719,4 +720,3 @@ footer {
     font-size: 14px;
   }
 }
-

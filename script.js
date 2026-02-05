@@ -1,9 +1,24 @@
 /* =========================
    WHATSAPP BOOKING
    ========================= */
-function openWhatsApp() {
+function openWhatsApp(service) {
   const phone = "27670626007";
-  const message = "Hi Clean Scrub, I would like to book a car wash.";
+  let message = "";
+
+  switch(service) {
+    case "mattress":
+      message = "Hi Clean Scrub, I would like to book a Mattress Cleaning service.";
+      break;
+    case "couch":
+      message = "Hi Clean Scrub, I would like to book a Couch Cleaning service.";
+      break;
+    case "carpet":
+      message = "Hi Clean Scrub, I would like to book a Carpet Cleaning service.";
+      break;
+    default:
+      message = "Hi Clean Scrub, I would like to book a cleaning service.";
+  }
+
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
@@ -102,3 +117,4 @@ function closePopup() {
 function toggleColor(image) {
   image.classList.toggle("color");
 }
+

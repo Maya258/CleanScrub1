@@ -23,6 +23,7 @@ function openWhatsApp(service) {
   window.open(url, "_blank");
 }
 
+
 /* =========================
    WHATSAPP BUTTON ANIMATION
    ========================= */
@@ -59,6 +60,21 @@ function revealAbout() {
 
 window.addEventListener("scroll", revealAbout);
 window.addEventListener("load", revealAbout);
+
+const circleCards = document.querySelectorAll('.circle-card');
+
+circleCards.forEach(card => {
+  card.addEventListener('click', () => {
+    // Collapse other cards
+    circleCards.forEach(c => {
+      if (c !== card) c.classList.remove('expanded');
+    });
+    // Toggle this card
+    card.classList.toggle('expanded');
+  });
+});
+
+
 
 /* =========================
    HEART CONFETTI (COUPLES ONLY)
@@ -117,4 +133,3 @@ function closePopup() {
 function toggleColor(image) {
   image.classList.toggle("color");
 }
-

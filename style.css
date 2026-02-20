@@ -18,6 +18,7 @@ body {
   background: #f4f9fc;
   color: #222;
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* ========================
@@ -46,6 +47,7 @@ body {
 
 .logo img {
   height: 40px;
+  max-width: 100%; /* Ensure logo doesn't overflow */
 }
 
 .nav a {
@@ -54,6 +56,9 @@ body {
   margin-left: 20px;
   font-weight: 500;
   transition: color 0.3s;
+  /* Better tap target */
+  display: inline-block;
+  padding: 5px 0;
 }
 
 .nav a:hover {
@@ -78,6 +83,7 @@ body {
 .hero h1 {
   font-size: clamp(28px, 5vw, 48px);
   margin-bottom: 15px;
+  word-wrap: break-word;
 }
 
 .hero p {
@@ -96,6 +102,9 @@ body {
   transition: all 0.3s ease;
   /* Ensure buttons don't zoom on double-tap */
   touch-action: manipulation;
+  /* Better tap target */
+  min-width: 200px;
+  max-width: 100%;
 }
 
 .hero button:hover {
@@ -126,18 +135,21 @@ body {
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
   position: relative;
+  width: 100%; /* Take full width on mobile */
 }
 
 .about h2 {
   font-size: 2.2rem;
   margin-bottom: 20px;
   color: #0aa2dd;
+  word-wrap: break-word;
 }
 
 .about p {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
+  word-wrap: break-word;
 }
 
 .about .highlight {
@@ -157,12 +169,15 @@ body {
 .section {
   padding: 60px 40px;
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .section h2 {
   margin-bottom: 30px;
   font-size: 32px;
   color: #0aa2dd;
+  word-wrap: break-word;
 }
 
 .light {
@@ -176,6 +191,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .card {
@@ -188,6 +204,9 @@ body {
   transition: all 0.25s ease;
   text-align: center;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card::before {
@@ -221,11 +240,14 @@ body {
 .card h3 {
   margin-bottom: 10px;
   font-size: 22px;
+  word-wrap: break-word;
 }
 
 .card p {
   font-size: 16px;
   color: #555;
+  word-wrap: break-word;
+  flex: 1;
 }
 
 .card span {
@@ -245,6 +267,8 @@ body {
   list-style: none;
   text-align: left;
   font-size: 16px;
+  width: 100%;
+  padding: 0 10px;
 }
 
 .price-list li {
@@ -252,6 +276,8 @@ body {
   justify-content: space-between;
   padding: 12px 0;
   border-bottom: 1px solid #ddd;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
+  gap: 5px;
 }
 
 .price-list li strong {
@@ -267,6 +293,7 @@ body {
   padding: 80px 40px;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 /* Decorative blue circles in background */
@@ -302,6 +329,8 @@ body {
   font-weight: 600;
   text-shadow: 2px 2px 4px rgba(10,162,221,0.1);
   width: 100%;
+  word-wrap: break-word;
+  padding: 0 10px;
 }
 
 .upholstery h2::after {
@@ -326,6 +355,7 @@ body {
   letter-spacing: 0.5px;
   position: relative;
   padding: 0 20px;
+  word-wrap: break-word;
 }
 
 /* Loader Container - prettier with blue */
@@ -343,6 +373,7 @@ body {
   border: 1px solid rgba(10,162,221,0.1);
   position: relative;
   z-index: 2;
+  width: 90%; /* Responsive width */
 }
 
 .couch-wrapper {
@@ -350,6 +381,7 @@ body {
   width: var(--couch-width);
   height: 80px;
   margin-bottom: 15px;
+  max-width: 100%;
 }
 
 .couch {
@@ -440,6 +472,7 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 /* Cards - pretty blue theme */
@@ -457,6 +490,7 @@ body {
   flex-direction: column;
   backdrop-filter: blur(5px);
   overflow: hidden;
+  width: 100%;
 }
 
 /* Blue gradient overlay on hover */
@@ -492,6 +526,7 @@ body {
   text-align: center;
   font-weight: 600;
   position: relative;
+  word-wrap: break-word;
 }
 
 .up-card h3::after {
@@ -514,6 +549,7 @@ body {
   border-radius: 16px;
   padding: 15px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .price-item:hover {
@@ -529,6 +565,7 @@ body {
   padding-left: 8px;
   border-left: 3px solid #0aa2dd;
   letter-spacing: 0.3px;
+  word-wrap: break-word;
 }
 
 /* Price Rows */
@@ -541,6 +578,8 @@ body {
   font-size: 15px;
   transition: all 0.2s ease;
   border-radius: 8px;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 5px;
 }
 
 .price-row:last-child {
@@ -556,6 +595,7 @@ body {
 .price-row strong {
   color: #334155;
   font-weight: 500;
+  word-wrap: break-word;
 }
 
 .price-row span {
@@ -568,6 +608,7 @@ body {
   font-size: 14px;
   box-shadow: 0 2px 5px rgba(10,162,221,0.1);
   transition: all 0.3s ease;
+  white-space: nowrap; /* Keep price on one line */
 }
 
 .price-row:hover span {
@@ -582,6 +623,7 @@ body {
 #gallery.section {
   background: #ffffff;
   padding: 60px 40px;
+  width: 100%;
 }
 
 .gallery {
@@ -589,6 +631,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
   margin-top: 30px;
+  width: 100%;
 }
 
 .gallery img {
@@ -599,6 +642,8 @@ body {
   cursor: pointer;
   filter: grayscale(100%);
   transition: filter 0.4s ease, transform 0.3s ease;
+  /* Better tap target */
+  min-height: 150px;
 }
 
 .gallery img:hover {
@@ -617,12 +662,14 @@ body {
   padding: 80px 20px 40px 20px;
   color: #040b29;
   text-align: center;
+  width: 100%;
 }
 
 .contact h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  word-wrap: break-word;
 }
 
 .contact-cards {
@@ -631,6 +678,7 @@ body {
   gap: 20px;
   justify-content: center;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .contact-card {
@@ -640,6 +688,10 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contact-card:hover {
@@ -658,16 +710,24 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  word-wrap: break-word;
+  display: inline-block;
+  padding: 5px 0;
 }
 
 .contact-card a:hover {
   color: #0aa2dd;
 }
 
+.contact-card p {
+  word-wrap: break-word;
+}
+
 .directions-btn-container {
   margin-top: 15px;
   margin-bottom: 30px;
   text-align: center;
+  width: 100%;
 }
 
 .directions-btn {
@@ -682,11 +742,28 @@ body {
   transition: background 0.3s ease, transform 0.2s ease;
   /* Prevent zoom on double-tap */
   touch-action: manipulation;
+  /* Better tap target */
+  min-width: 200px;
+  max-width: 90%;
 }
 
 .directions-btn:hover {
   background: #0088bb;
   transform: scale(1.05);
+}
+
+.map-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+  display: block;
 }
 
 /* ========================
@@ -698,6 +775,7 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
+  width: 100%;
 }
 
 /* ========================
@@ -717,6 +795,13 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Prevent zoom on double-tap */
   touch-action: manipulation;
+  /* Better tap target */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
 .whatsapp-float:hover {
@@ -745,6 +830,7 @@ footer {
   font-size: 20px;
   animation: fall linear forwards;
   opacity: 0.8;
+  pointer-events: none;
 }
 
 @keyframes fall {
@@ -772,6 +858,7 @@ footer {
   pointer-events: none;
   transition: opacity 0.4s ease;
   z-index: 2000;
+  padding: 15px; /* Add padding for mobile */
 }
 
 .popup-overlay.show {
@@ -789,6 +876,8 @@ footer {
   text-align: center;
   transform: scale(0.8);
   transition: transform 0.4s ease;
+  max-height: 90vh;
+  overflow-y: auto; /* Allow scrolling if content is long */
 }
 
 .popup-overlay.show .popup {
@@ -798,11 +887,14 @@ footer {
 .popup h2 {
   color: #0aa2dd;
   margin-bottom: 10px;
+  word-wrap: break-word;
+  padding-right: 20px; /* Make room for close button */
 }
 
 .popup p {
   margin-bottom: 20px;
   color: #555;
+  word-wrap: break-word;
 }
 
 .popup-btn {
@@ -815,6 +907,9 @@ footer {
   cursor: pointer;
   /* Prevent zoom on double-tap */
   touch-action: manipulation;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 .popup-btn:hover {
@@ -831,11 +926,38 @@ footer {
   cursor: pointer;
   /* Prevent zoom on double-tap */
   touch-action: manipulation;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
 /* ========================
-   RESPONSIVE DESIGN
+   ENHANCED MOBILE RESPONSIVENESS
    ======================== */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+  .section {
+    padding: 50px 30px;
+  }
+  
+  .upholstery-grid {
+    gap: 20px;
+  }
+  
+  .up-card {
+    padding: 25px 20px;
+  }
+  
+  .up-card h3 {
+    font-size: 22px;
+  }
+}
+
+/* Tablets */
 @media (max-width: 900px) {
   .upholstery {
     padding: 60px 30px;
@@ -866,38 +988,136 @@ footer {
   .price-row span {
     padding: 3px 12px;
   }
+  
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
+/* Small Tablets / Large Phones */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    padding: 10px 20px;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .logo img {
+    height: 35px;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
   }
 
   .nav a {
-    margin-left: 0;
-    margin-top: 10px;
+    margin: 0 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
   }
 
   .section {
     padding: 40px 20px;
   }
+  
+  .section h2 {
+    font-size: 28px;
+  }
+  
+  .hero {
+    min-height: 500px;
+  }
+  
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
+  
+  .hero button {
+    padding: 15px 30px;
+    min-width: 220px;
+  }
+  
+  .about-content {
+    padding: 30px 20px;
+  }
+  
+  .about h2 {
+    font-size: 28px;
+  }
+  
+  .about p {
+    font-size: 16px;
+  }
+  
+  .cards {
+    gap: 15px;
+  }
+  
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .gallery img {
+    height: 180px;
+  }
+  
+  .contact h2 {
+    font-size: 32px;
+  }
+  
+  .contact-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .map-container iframe {
+    height: 350px;
+  }
+  
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    bottom: 15px;
+    right: 15px;
+  }
 }
 
+/* Mobile Phones */
 @media (max-width: 600px) {
   .upholstery {
-    padding: 40px 20px;
+    padding: 40px 15px;
+  }
+  
+  .upholstery h2 {
+    font-size: 28px;
   }
   
   .upholstery-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 100%;
   }
   
   .up-card {
-    padding: 25px 20px;
+    padding: 20px 15px;
     width: 100%;
   }
   
@@ -917,6 +1137,8 @@ footer {
   
   .price-row span {
     padding: 4px 12px;
+    font-size: 14px;
+    white-space: nowrap;
   }
   
   .loader-container {
@@ -927,11 +1149,22 @@ footer {
   .couch-wrapper {
     transform: scale(0.9);
   }
+  
+  .price-list {
+    font-size: 15px;
+  }
+  
+  .price-list li {
+    padding: 10px 0;
+  }
 }
 
+/* Small Mobile Phones */
 @media (max-width: 480px) {
   .hero {
-    height: 70vh;
+    height: auto;
+    min-height: 450px;
+    padding: 60px 15px;
   }
 
   .hero h1 {
@@ -940,30 +1173,182 @@ footer {
 
   .hero p {
     font-size: 14px;
+    margin-bottom: 20px;
   }
-}
-
-@media (max-width: 380px) {
-  .upholstery {
+  
+  .hero button {
+    padding: 14px 25px;
+    min-width: 200px;
+    font-size: 15px;
+  }
+  
+  .section {
     padding: 30px 15px;
   }
   
+  .section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .about {
+    padding: 50px 15px;
+  }
+  
+  .about-content {
+    padding: 25px 15px;
+  }
+  
+  .about h2 {
+    font-size: 24px;
+  }
+  
+  .about p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .card h3 {
+    font-size: 20px;
+  }
+  
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery img {
+    height: 200px;
+  }
+  
+  .contact {
+    padding: 50px 15px 30px;
+  }
+  
+  .contact h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .contact-card {
+    padding: 20px;
+  }
+  
+  .map-container iframe {
+    height: 300px;
+  }
+  
+  .directions-btn {
+    padding: 14px 20px;
+    font-size: 15px;
+    width: 90%;
+    max-width: 280px;
+  }
+  
+  .popup {
+    padding: 25px 20px;
+  }
+  
+  .popup h2 {
+    font-size: 22px;
+  }
+  
+  .popup p {
+    font-size: 14px;
+  }
+  
+  .popup-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  footer {
+    padding: 15px;
+    font-size: 12px;
+  }
+}
+
+/* Very Small Mobile Phones */
+@media (max-width: 380px) {
+  .upholstery {
+    padding: 30px 12px;
+  }
+  
+  .upholstery h2 {
+    font-size: 24px;
+  }
+  
   .up-card {
-    padding: 20px 15px;
+    padding: 20px 12px;
+  }
+  
+  .up-card h3 {
+    font-size: 20px;
   }
   
   .price-row {
     font-size: 14px;
     padding: 8px 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
   }
   
   .price-row span {
-    margin-left: 5px;
+    margin-left: 0;
     padding: 3px 10px;
+    font-size: 13px;
+    align-self: flex-end;
   }
   
   .upholstery h2 {
     font-size: 28px;
+  }
+  
+  .nav a {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+  
+  .hero h1 {
+    font-size: 24px;
+  }
+  
+  .hero button {
+    min-width: 180px;
+    padding: 12px 20px;
+  }
+  
+  .gallery img {
+    height: 160px;
+  }
+  
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+/* Fix for very small devices in landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 350px;
+    height: auto;
+    padding: 40px 15px;
+  }
+  
+  .popup {
+    max-height: 85vh;
   }
 }
 
@@ -972,4 +1357,34 @@ footer {
   --couch-width: 180px;
   --clean-color: #0aa2dd;
   --dirty-color: #bdc3c7;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve touch targets for all interactive elements */
+button, 
+a, 
+.nav a, 
+.card, 
+.gallery img, 
+.popup-btn, 
+.close-btn, 
+.whatsapp-float, 
+.directions-btn {
+  min-height: 44px; /* Apple's recommended minimum tap target size */
+  min-width: 44px;
+}
+
+/* Fix for iOS tap highlight */
+* {
+  -webkit-tap-highlight-color: rgba(10, 162, 221, 0.2);
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
 }

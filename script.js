@@ -1,34 +1,18 @@
 /* =========================
    WHATSAPP BOOKING
    ========================= */
-function openWhatsApp(service) {
+function openWhatsApp() {
   const phone = "27670626007";
-  let message = "";
-
-  switch(service) {
-    case "mattress":
-      message = "Hi Clean Scrub, I would like to book a Mattress Cleaning service.";
-      break;
-    case "couch":
-      message = "Hi Clean Scrub, I would like to book a Couch Cleaning service.";
-      break;
-    case "carpet":
-      message = "Hi Clean Scrub, I would like to book a Carpet Cleaning service.";
-      break;
-    default:
-      message = "Hi Clean Scrub, I would like to book a cleaning service.";
-  }
-
+  const message = "Hi Clean Scrub, I would like to book a cleaning service.";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
-
 
 /* =========================
    WHATSAPP BUTTON ANIMATION
    ========================= */
 window.addEventListener("load", () => {
-  const btn = document.querySelector(".whatsapp-btn");
+  const btn = document.querySelector(".whatsapp-float");
   if (!btn) return;
 
   btn.style.opacity = "0";
@@ -51,8 +35,9 @@ function revealAbout() {
 
   const windowHeight = window.innerHeight;
   const revealTop = aboutContent.getBoundingClientRect().top;
+  const revealBottom = aboutContent.getBoundingClientRect().bottom;
 
-  if (revealTop < windowHeight - 100) {
+  if (revealTop < windowHeight - 100 && revealBottom > 0) {
     aboutContent.classList.add("visible");
     window.removeEventListener("scroll", revealAbout);
   }
@@ -61,21 +46,6 @@ function revealAbout() {
 window.addEventListener("scroll", revealAbout);
 window.addEventListener("load", revealAbout);
 
-const circleCards = document.querySelectorAll('.circle-card');
-
-circleCards.forEach(card => {
-  card.addEventListener('click', () => {
-    // Collapse other cards
-    circleCards.forEach(c => {
-      if (c !== card) c.classList.remove('expanded');
-    });
-    // Toggle this card
-    card.classList.toggle('expanded');
-  });
-});
-
-
-
 /* =========================
    HEART CONFETTI (COUPLES ONLY)
    ========================= */
@@ -83,18 +53,22 @@ function createHearts() {
   const container = document.getElementById("hearts");
   if (!container) return;
 
+  container.innerHTML = "";
+
   for (let i = 0; i < 20; i++) {
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.innerHTML = "❤️";
 
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 3 + Math.random() * 2 + "s";
-    heart.style.fontSize = 16 + Math.random() * 14 + "px";
+    heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+    heart.style.fontSize = (16 + Math.random() * 14) + "px";
 
     container.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 5000);
+    setTimeout(() => {
+      if (heart.parentNode) heart.remove();
+    }, 5000);
   }
 }
 
@@ -103,19 +77,16 @@ function createHearts() {
    ========================= */
 const popup = document.getElementById("popup");
 
-// Show popup after 3 seconds
 setTimeout(() => {
   if (!popup) return;
 
   popup.classList.add("show");
 
-  // Hearts ONLY for Couples Special popup
   if (popup.classList.contains("couples-popup")) {
     createHearts();
   }
 }, 3000);
 
-// Close popup
 function closePopup() {
   if (!popup) return;
 
@@ -131,5 +102,45 @@ function closePopup() {
    IMAGE COLOR TOGGLE
    ========================= */
 function toggleColor(image) {
-  image.classList.toggle("color");
+  if (image) {
+    image.classList.toggle("color");
+  }
 }
+
+/* =========================
+   CLOSE POPUP WITH ESC KEY 
+   ========================= */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && popup && popup.classList.contains('show')) {
+    closePopup();
+  }
+});
+
+/* =========================
+   CLOSE POPUP WHEN CLICKING OUTSIDE 
+   ========================= */
+if (popup) {
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+}
+
+/* =========================
+   SMOOTH SCROLL FOR NAV LINKS
+   ========================= */
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});

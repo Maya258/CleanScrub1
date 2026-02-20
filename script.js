@@ -145,5 +145,27 @@ document.querySelectorAll('.nav a').forEach(link => {
   });
 });
 
+/* =========================
+   IMPROVED TOUCH HANDLING 
+   ========================= */
+// This is less aggressive and won't interfere with normal clicks
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (e) => {
+  const now = Date.now();
+  // Only prevent if it's a quick double-tap on non-interactive elements
+  if (now - lastTouchEnd <= 300) {
+    // Check if the target is something that shouldn't be zoomable
+    const isInteractive = e.target.closest('button, a, .clickable, [onclick], img, .nav a, .whatsapp-float, .popup-btn, .close-btn');
+    
+    // Only prevent default if it's NOT an interactive element
+    // This allows clicks to work normally
+    if (!isInteractive) {
+      e.preventDefault();
+    }
+  }
+  lastTouchEnd = now;
+}, { passive: false });
+
+
 
 

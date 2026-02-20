@@ -145,15 +145,5 @@ document.querySelectorAll('.nav a').forEach(link => {
   });
 });
 
-/* =========================
-   PREVENT DOUBLE-TAP ZOOM 
-   ========================= */
-// Less aggressive approach - only prevents double-tap, not all multi-touch
-let lastTouchEnd = 0;
-document.addEventListener('touchend', (e) => {
-  const now = Date.now();
-  if (now - lastTouchEnd <= 300) {
-    e.preventDefault();
-  }
-  lastTouchEnd = now;
-}, { passive: false });
+
+

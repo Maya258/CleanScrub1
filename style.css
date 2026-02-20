@@ -9,7 +9,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* smooth scroll for nav links */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,12 +19,12 @@ body {
 }
 
 /* ========================
-   HEADER
+   HEADER & NAVIGATION
    ======================== */
 .header {
   position: sticky;
   top: 0;
-  background: #0aa2dd; /* primary blue */
+  background: #0aa2dd;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,17 +55,16 @@ body {
 }
 
 .nav a:hover {
-  color: #ffdd57; /* gold accent hover */
+  color: #ffdd57;
 }
 
 /* ========================
-   HERO
+   HERO SECTION
    ======================== */
 .hero {
   height: 90vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-    url("hero.png") center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url("hero.png") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,15 +95,15 @@ body {
 }
 
 .hero button:hover {
-  background: #0088bb; /* darker blue hover */
+  background: #0088bb;
   transform: translateY(-3px);
 }
 
 /* ========================
-   ABOUT
+   ABOUT SECTION
    ======================== */
 .about {
-  background: url('Media (20).jfif') center/cover no-repeat; 
+  background: url('Media (20).jfif') center/cover no-repeat;
   padding: 80px 20px;
   display: flex;
   justify-content: center;
@@ -122,7 +121,7 @@ body {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  position: relative; /* for popup close button reference */
+  position: relative;
 }
 
 .about h2 {
@@ -143,14 +142,13 @@ body {
   font-size: 1.2rem;
 }
 
-/* Reveal on scroll */
 .about-content.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* ========================
-   SECTIONS
+   SECTION STYLES
    ======================== */
 .section {
   padding: 60px 40px;
@@ -168,23 +166,35 @@ body {
 }
 
 /* ========================
-   CARDS
+   CARD COMPONENTS
    ======================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 25px;
+  border: 1px solid #e3e7ee;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  text-align: center;
+  position: relative;
+}
+
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 14px;
   padding: 1.5px;
-  background: linear-gradient(
-    135deg,
-    #d0e3ff,
-    #0aa2dd,
-    #4facfe
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(135deg, #d0e3ff, #0aa2dd, #4facfe);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -198,33 +208,11 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 25px;
-  border: 1px solid #e3e7ee;
-  box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: all 0.25s ease;
-  text-align: center;
-  position: relative;
-}
-
 .card:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.08),
-    0 8px 24px rgba(10, 162, 221, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08),
+              0 8px 24px rgba(10, 162, 221, 0.12);
 }
-
 
 .card h3 {
   margin-bottom: 10px;
@@ -268,8 +256,446 @@ body {
 }
 
 /* ========================
+   UPHOLSTERY SECTION - PRETTY BLUES ONLY
+   ======================== */
+.upholstery {
+  background: linear-gradient(135deg, #f4f9fc 0%, #e8f0f7 100%);
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blue circles in background */
+.upholstery::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(10,162,221,0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.upholstery::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(10,162,221,0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.upholstery h2 {
+  color: #0aa2dd;
+  font-size: 36px;
+  margin-bottom: 15px;
+  text-align: center;  /* This centers the text */
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(10,162,221,0.1);
+  width: 100%;  /* Ensures it takes full width */
+}
+
+.upholstery h2::after {
+  content: '';
+  display: block;  /* Changed from absolute to block */
+  margin: 10px auto 0;  /* This centers the underline */
+  width: 100px;  /* Fixed width for underline */
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #0aa2dd, #4facfe, #0aa2dd, transparent);
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  color: #4a5568;
+  margin-bottom: 40px;
+  font-size: 17px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* The rest of your CSS remains exactly the same... */
+
+/* Loader Container - prettier with blue */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 40px;
+  background: white;
+  border-radius: 60px;
+  max-width: 320px;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 10px 25px rgba(10,162,221,0.1);
+  border: 1px solid rgba(10,162,221,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.couch-wrapper {
+  position: relative;
+  width: var(--couch-width);
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.couch {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 8px solid #5a6b7a;
+}
+
+.couch::before, .couch::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 25px;
+  height: 40px;
+  background: inherit;
+  border-radius: 10px 10px 0 0;
+}
+.couch::before { left: -15px; }
+.couch::after { right: -15px; }
+
+.dirty {
+  background: #cbd5e0;
+  z-index: 1;
+}
+
+.clean {
+  background: #0aa2dd;
+  z-index: 2;
+  width: 0%;
+  overflow: hidden;
+  animation: clean-reveal 2.5s infinite ease-in-out;
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.5);
+}
+
+.vacuum-nozzle {
+  position: absolute;
+  bottom: 45px;
+  left: -20px;
+  width: 35px;
+  height: 12px;
+  background: #2d3748;
+  border-radius: 4px;
+  z-index: 3;
+  animation: vacuum-move 2.5s infinite ease-in-out;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.hose {
+  position: absolute;
+  top: -20px;
+  right: 5px;
+  width: 6px;
+  height: 20px;
+  background: #4a5568;
+  transform: rotate(15deg);
+  border-radius: 3px;
+}
+
+@keyframes clean-reveal {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes vacuum-move {
+  0% { left: -15px; }
+  100% { left: calc(100% - 20px); }
+}
+
+.loading-text {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #0aa2dd;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+/* Grid Layout */
+.upholstery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Cards - pretty blue theme */
+.up-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  border: 1px solid rgba(10,162,221,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03), 0 5px 15px rgba(10,162,221,0.05);
+  transition: all 0.4s ease;
+  text-align: left;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+/* Blue gradient overlay on hover */
+.up-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: linear-gradient(180deg, rgba(10,162,221,0.03) 0%, transparent 100%);
+  transition: height 0.4s ease;
+  pointer-events: none;
+}
+
+.up-card:hover::before {
+  height: 100%;
+}
+
+.up-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(10,162,221,0.15), 0 5px 15px rgba(10,162,221,0.1);
+  border-color: rgba(10,162,221,0.2);
+}
+
+/* Card Titles */
+.up-card h3 {
+  margin-bottom: 25px;
+  color: #0aa2dd;
+  font-size: 24px;
+  border-bottom: 2px solid rgba(10,162,221,0.2);
+  padding-bottom: 12px;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+}
+
+.up-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #0aa2dd;
+  border-radius: 2px;
+}
+
+/* Price Items Container */
+.price-item {
+  margin-bottom: 20px;
+  flex: 1;
+  background: rgba(10,162,221,0.02);
+  border-radius: 16px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.price-item:hover {
+  background: rgba(10,162,221,0.04);
+}
+
+/* Item Titles */
+.item-title {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left: 3px solid #0aa2dd;
+  letter-spacing: 0.3px;
+}
+
+/* Price Rows */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px dashed rgba(10,162,221,0.1);
+  font-size: 15px;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.price-row:last-child {
+  border-bottom: none;
+}
+
+.price-row:hover {
+  background: white;
+  transform: translateX(3px);
+  box-shadow: 0 2px 8px rgba(10,162,221,0.05);
+}
+
+.price-row strong {
+  color: #334155;
+  font-weight: 500;
+}
+
+.price-row span {
+  color: #0aa2dd;
+  font-weight: 600;
+  margin-left: 10px;
+  background: rgba(10,162,221,0.08);
+  padding: 4px 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(10,162,221,0.1);
+  transition: all 0.3s ease;
+}
+
+.price-row:hover span {
+  background: #0aa2dd;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ========================
+   MOBILE FRIENDLY
+   ======================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .upholstery {
+    padding: 60px 30px;
+  }
+  
+  .upholstery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .up-card {
+    padding: 25px 20px;
+  }
+  
+  .up-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .item-title {
+    font-size: 15px;
+  }
+  
+  .price-row {
+    font-size: 14px;
+  }
+  
+  .price-row span {
+    padding: 3px 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .upholstery {
+    padding: 40px 20px;
+  }
+  
+  .upholstery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .up-card {
+    padding: 25px 20px;
+    width: 100%;
+  }
+  
+  .up-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .item-title {
+    font-size: 16px;
+  }
+  
+  .price-row {
+    font-size: 15px;
+    padding: 10px 8px;
+  }
+  
+  .price-row span {
+    padding: 4px 12px;
+  }
+  
+  .loader-container {
+    padding: 20px 25px;
+    max-width: 280px;
+  }
+  
+  .couch-wrapper {
+    transform: scale(0.9);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .upholstery {
+    padding: 30px 15px;
+  }
+  
+  .up-card {
+    padding: 20px 15px;
+  }
+  
+  .price-row {
+    font-size: 14px;
+    padding: 8px 5px;
+  }
+  
+  .price-row span {
+    margin-left: 5px;
+    padding: 3px 10px;
+  }
+  
+  .upholstery h2 {
+    font-size: 28px;
+  }
+}
+
+/* Keep the original :root variables */
+:root {
+  --couch-width: 180px;
+  --clean-color: #0aa2dd;
+  --dirty-color: #bdc3c7;
+}
+/* ========================
    GALLERY
    ======================== */
+#gallery.section {
+  background: #ffffff;  /* This makes the background white */
+  padding: 60px 40px;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -294,14 +720,13 @@ body {
 .gallery img.color {
   filter: grayscale(0%);
 }
-
 /* ========================
-   CONTACT
+   CONTACT SECTION
    ======================== */
 .contact {
-  background: #fff; 
-  padding: 80px 20px 40px 20px; /* reduced bottom padding from 120px → 40px */
-  color: #040b29; 
+  background: #f4f9fc;
+  padding: 80px 20px 40px 20px;
+  color: #040b29;
   text-align: center;
 }
 
@@ -313,15 +738,15 @@ body {
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   justify-content: center;
-  margin-bottom: 30px; /* reduced from 60px → 30px */
+  margin-bottom: 30px;
 }
 
 .contact-card {
-  background: white; 
-  padding: 25px; 
+  background: white;
+  padding: 25px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
@@ -330,36 +755,36 @@ body {
 
 .contact-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .contact-card .icon {
   font-size: 2rem;
   margin-bottom: 15px;
-  color: #0aa2dd; 
+  color: #0aa2dd;
 }
 
 .contact-card a {
-  color: #040b29; 
+  color: #040b29;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .contact-card a:hover {
-  color: #0aa2dd; 
+  color: #0aa2dd;
 }
 
 .directions-btn-container {
   margin-top: 15px;
-  margin-bottom: 30px; /* add small space between button and map */
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .directions-btn {
   display: inline-block;
-  background: #0aa2dd; 
-  color: #fff; 
+  background: #0aa2dd;
+  color: #fff;
   padding: 12px 25px;
   border-radius: 25px;
   text-decoration: none;
@@ -369,7 +794,7 @@ body {
 }
 
 .directions-btn:hover {
-  background: #0088bb; 
+  background: #0088bb;
   transform: scale(1.05);
 }
 
@@ -385,7 +810,7 @@ footer {
 }
 
 /* ========================
-   WHATSAPP FLOAT
+   WHATSAPP FLOAT BUTTON
    ======================== */
 .whatsapp-float {
   position: fixed;
@@ -410,7 +835,6 @@ footer {
 /* ========================
    POPUP MODAL
    ======================== */
-/* HEART CONFETTI */
 .hearts-container {
   position: fixed;
   top: 0;
@@ -419,7 +843,7 @@ footer {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: 9999; /* MUST be higher than popup */
+  z-index: 9999;
 }
 
 .heart {
@@ -440,7 +864,6 @@ footer {
     opacity: 0;
   }
 }
-
 
 .popup-overlay {
   position: fixed;
@@ -513,8 +936,9 @@ footer {
   cursor: pointer;
 }
 
+
 /* ========================
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ======================== */
 @media (max-width: 768px) {
   .header {
@@ -545,5 +969,3 @@ footer {
     font-size: 14px;
   }
 }
-
-

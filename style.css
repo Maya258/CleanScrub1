@@ -6,6 +6,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  /* Prevents double-tap zoom on all elements */
+  touch-action: manipulation;
 }
 
 html {
@@ -92,6 +94,8 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Ensure buttons don't zoom on double-tap */
+  touch-action: manipulation;
 }
 
 .hero button:hover {
@@ -294,17 +298,17 @@ body {
   color: #0aa2dd;
   font-size: 36px;
   margin-bottom: 15px;
-  text-align: center;  /* This centers the text */
+  text-align: center;
   font-weight: 600;
   text-shadow: 2px 2px 4px rgba(10,162,221,0.1);
-  width: 100%;  /* Ensures it takes full width */
+  width: 100%;
 }
 
 .upholstery h2::after {
   content: '';
-  display: block;  /* Changed from absolute to block */
-  margin: 10px auto 0;  /* This centers the underline */
-  width: 100px;  /* Fixed width for underline */
+  display: block;
+  margin: 10px auto 0;
+  width: 100px;
   height: 3px;
   background: linear-gradient(90deg, transparent, #0aa2dd, #4facfe, #0aa2dd, transparent);
   border-radius: 3px;
@@ -323,8 +327,6 @@ body {
   position: relative;
   padding: 0 20px;
 }
-
-/* The rest of your CSS remains exactly the same... */
 
 /* Loader Container - prettier with blue */
 .loader-container {
@@ -575,124 +577,10 @@ body {
 }
 
 /* ========================
-   MOBILE FRIENDLY
-   ======================== */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .upholstery {
-    padding: 60px 30px;
-  }
-  
-  .upholstery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .up-card {
-    padding: 25px 20px;
-  }
-  
-  .up-card h3 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  
-  .item-title {
-    font-size: 15px;
-  }
-  
-  .price-row {
-    font-size: 14px;
-  }
-  
-  .price-row span {
-    padding: 3px 12px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .upholstery {
-    padding: 40px 20px;
-  }
-  
-  .upholstery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .up-card {
-    padding: 25px 20px;
-    width: 100%;
-  }
-  
-  .up-card h3 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  
-  .item-title {
-    font-size: 16px;
-  }
-  
-  .price-row {
-    font-size: 15px;
-    padding: 10px 8px;
-  }
-  
-  .price-row span {
-    padding: 4px 12px;
-  }
-  
-  .loader-container {
-    padding: 20px 25px;
-    max-width: 280px;
-  }
-  
-  .couch-wrapper {
-    transform: scale(0.9);
-  }
-}
-
-/* Very small phones */
-@media (max-width: 380px) {
-  .upholstery {
-    padding: 30px 15px;
-  }
-  
-  .up-card {
-    padding: 20px 15px;
-  }
-  
-  .price-row {
-    font-size: 14px;
-    padding: 8px 5px;
-  }
-  
-  .price-row span {
-    margin-left: 5px;
-    padding: 3px 10px;
-  }
-  
-  .upholstery h2 {
-    font-size: 28px;
-  }
-}
-
-/* Keep the original :root variables */
-:root {
-  --couch-width: 180px;
-  --clean-color: #0aa2dd;
-  --dirty-color: #bdc3c7;
-}
-/* ========================
    GALLERY
    ======================== */
 #gallery.section {
-  background: #ffffff;  /* This makes the background white */
+  background: #ffffff;
   padding: 60px 40px;
 }
 
@@ -720,6 +608,7 @@ body {
 .gallery img.color {
   filter: grayscale(0%);
 }
+
 /* ========================
    CONTACT SECTION
    ======================== */
@@ -791,6 +680,8 @@ body {
   font-weight: 500;
   font-size: 16px;
   transition: background 0.3s ease, transform 0.2s ease;
+  /* Prevent zoom on double-tap */
+  touch-action: manipulation;
 }
 
 .directions-btn:hover {
@@ -824,6 +715,8 @@ footer {
   text-decoration: none;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Prevent zoom on double-tap */
+  touch-action: manipulation;
 }
 
 .whatsapp-float:hover {
@@ -920,6 +813,8 @@ footer {
   border-radius: 25px;
   font-size: 15px;
   cursor: pointer;
+  /* Prevent zoom on double-tap */
+  touch-action: manipulation;
 }
 
 .popup-btn:hover {
@@ -934,12 +829,45 @@ footer {
   border: none;
   font-size: 22px;
   cursor: pointer;
+  /* Prevent zoom on double-tap */
+  touch-action: manipulation;
 }
-
 
 /* ========================
    RESPONSIVE DESIGN
    ======================== */
+@media (max-width: 900px) {
+  .upholstery {
+    padding: 60px 30px;
+  }
+  
+  .upholstery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .up-card {
+    padding: 25px 20px;
+  }
+  
+  .up-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .item-title {
+    font-size: 15px;
+  }
+  
+  .price-row {
+    font-size: 14px;
+  }
+  
+  .price-row span {
+    padding: 3px 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -956,6 +884,51 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  .upholstery {
+    padding: 40px 20px;
+  }
+  
+  .upholstery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .up-card {
+    padding: 25px 20px;
+    width: 100%;
+  }
+  
+  .up-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .item-title {
+    font-size: 16px;
+  }
+  
+  .price-row {
+    font-size: 15px;
+    padding: 10px 8px;
+  }
+  
+  .price-row span {
+    padding: 4px 12px;
+  }
+  
+  .loader-container {
+    padding: 20px 25px;
+    max-width: 280px;
+  }
+  
+  .couch-wrapper {
+    transform: scale(0.9);
+  }
+}
+
 @media (max-width: 480px) {
   .hero {
     height: 70vh;
@@ -968,4 +941,35 @@ footer {
   .hero p {
     font-size: 14px;
   }
+}
+
+@media (max-width: 380px) {
+  .upholstery {
+    padding: 30px 15px;
+  }
+  
+  .up-card {
+    padding: 20px 15px;
+  }
+  
+  .price-row {
+    font-size: 14px;
+    padding: 8px 5px;
+  }
+  
+  .price-row span {
+    margin-left: 5px;
+    padding: 3px 10px;
+  }
+  
+  .upholstery h2 {
+    font-size: 28px;
+  }
+}
+
+/* Keep the original :root variables */
+:root {
+  --couch-width: 180px;
+  --clean-color: #0aa2dd;
+  --dirty-color: #bdc3c7;
 }

@@ -48,7 +48,7 @@ window.addEventListener("load", revealAbout);
 
 /* =========================
    HEART CONFETTI (COUPLES ONLY)
-   ========================= */
+   ========================= 
 function createHearts() {
   const container = document.getElementById("hearts");
   if (!container) return;
@@ -70,7 +70,7 @@ function createHearts() {
       if (heart.parentNode) heart.remove();
     }, 5000);
   }
-}
+}*/
 
 /* =========================
    POPUP LOGIC
@@ -165,6 +165,7 @@ document.addEventListener('touchend', (e) => {
   }
   lastTouchEnd = now;
 }, { passive: false });
+
 
 
 

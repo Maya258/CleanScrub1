@@ -1,0 +1,135 @@
+/* ========================
+   MOBILE STYLES (up to 480px)
+   ======================== */
+
+/* ===== HEADER ===== */
+.header {
+  flex-direction: column;
+  padding: 10px 15px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.nav a {
+  margin: 8px 0;
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: auto;
+  padding: 60px 15px;
+}
+
+.hero h1 {
+  font-size: 24px;
+}
+
+.hero p {
+  font-size: 14px;
+}
+
+.hero button {
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  padding: 40px 15px;
+}
+
+.about-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* ===== CIRCLE CARDS ===== */
+.circle-cards {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.circle-card {
+  width: 140px;
+  height: 140px;
+}
+
+.circle-card.expanded {
+  width: 90%;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.circle-card .card-content {
+  min-height: auto;
+  padding: 15px;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.gallery img {
+  height: 150px;
+  border-radius: 10px;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding: 40px 15px 20px 15px;
+}
+
+.contact h2 {
+  font-size: 2rem;
+}
+
+.contact-cards {
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.contact-card {
+  padding: 20px;
+}
+
+/* ===== DIRECTIONS BUTTON ===== */
+.directions-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+/* ===== POPUP ===== */
+.popup {
+  max-width: 95%;
+  padding: 20px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  bottom: 15px;
+  right: 15px;
+  font-size: 22px;
+  padding: 12px;
+}
+
+/* ===== HERO IMAGE BACKGROUND ===== */
+.hero {
+  background-position: center top;
+  background-size: cover;
+}

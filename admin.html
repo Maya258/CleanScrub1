@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clean Scrub | Admin Bookings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <a href="index.html" class="admin-brand" aria-label="Back to Clean Scrub website">
+      <img src="logo.png" alt="Clean Scrub Logo">
+      <div>
+        <strong>Clean Scrub</strong>
+        <span>Booking Admin</span>
+      </div>
+    </a>
+    <a href="index.html" class="admin-site-link">View Website</a>
+  </header>
+
+  <main class="admin-main">
+    <section id="adminLoginPanel" class="admin-login-card">
+      <div class="admin-login-icon">🔐</div>
+      <span class="admin-eyebrow">Staff Access</span>
+      <h1>Booking Admin</h1>
+      <p>Sign in with your Clean Scrub admin account to manage customer appointments.</p>
+
+      <form id="adminLoginForm" class="admin-login-form">
+        <label for="adminEmail">Email Address</label>
+        <input type="email" id="adminEmail" autocomplete="email" placeholder="you@example.com" required>
+
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" autocomplete="current-password" placeholder="Your password" required>
+
+        <button type="submit" id="adminLoginButton">Sign In</button>
+        <p id="adminLoginStatus" class="admin-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="adminDashboard" class="admin-dashboard" hidden>
+      <div class="admin-dashboard-top">
+        <div>
+          <span class="admin-eyebrow">Clean Scrub</span>
+          <h1>Booking Dashboard</h1>
+          <p id="adminWelcome">Manage your appointments in one place.</p>
+        </div>
+        <div class="admin-top-actions">
+          <button type="button" id="openManualBooking" class="admin-primary-btn">+ Add Booking</button>
+          <button type="button" id="refreshBookings" class="admin-outline-btn">Refresh</button>
+          <button type="button" id="adminLogout" class="admin-logout-btn">Sign Out</button>
+        </div>
+      </div>
+
+      <div class="admin-stats">
+        <article class="admin-stat-card">
+          <span>Today</span>
+          <strong id="statToday">0</strong>
+          <small>appointments</small>
+        </article>
+        <article class="admin-stat-card">
+          <span>Pending</span>
+          <strong id="statPending">0</strong>
+          <small>need attention</small>
+        </article>
+        <article class="admin-stat-card">
+          <span>Confirmed</span>
+          <strong id="statConfirmed">0</strong>
+          <small>booked</small>
+        </article>
+        <article class="admin-stat-card">
+          <span>Completed</span>
+          <strong id="statCompleted">0</strong>
+          <small>finished</small>
+        </article>
+        <article class="admin-stat-card">
+          <span>Cash Received</span>
+          <strong id="statCash">R0</strong>
+          <small>paid receipts</small>
+        </article>
+        <article class="admin-stat-card">
+          <span>EFT Received</span>
+          <strong id="statEft">R0</strong>
+          <small>paid receipts</small>
+        </article>
+        <article class="admin-stat-card admin-revenue-card">
+          <span>Total Revenue</span>
+          <strong id="statRevenue">R0</strong>
+          <small>cash + EFT</small>
+        </article>
+      </div>
+
+
+      <section class="admin-business-grid">
+        <article class="admin-panel-card today-schedule-card">
+          <div class="admin-panel-heading">
+            <div>
+              <span class="admin-eyebrow">Today</span>
+              <h2>Today's Schedule</h2>
+            </div>
+            <span id="todayScheduleDate" class="admin-panel-pill"></span>
+          </div>
+          <div id="todaySchedule" class="today-schedule"></div>
+        </article>
+
+        <article class="admin-panel-card monthly-report-card">
+          <div class="admin-panel-heading">
+            <div>
+              <span class="admin-eyebrow">Business Overview</span>
+              <h2>Monthly Report</h2>
+            </div>
+            <input type="month" id="reportMonth" class="month-picker">
+          </div>
+          <div class="monthly-report-stats">
+            <div><span>Revenue</span><strong id="monthRevenue">R0</strong></div>
+            <div><span>Expenses</span><strong id="monthExpenses">R0</strong></div>
+            <div class="profit-box"><span>Profit</span><strong id="monthProfit">R0</strong></div>
+            <div><span>Paid Jobs</span><strong id="monthPaidJobs">0</strong></div>
+          </div>
+          <div class="payment-split">
+            <span>Cash <strong id="monthCash">R0</strong></span>
+            <span>EFT <strong id="monthEft">R0</strong></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="admin-panel-card expense-card">
+        <div class="admin-panel-heading">
+          <div>
+            <span class="admin-eyebrow">Costs</span>
+            <h2>Expenses</h2>
+          </div>
+          <button type="button" id="toggleExpenseForm" class="admin-outline-btn">+ Add Expense</button>
+        </div>
+
+        <form id="expenseForm" class="expense-form" hidden>
+          <label>Date
+            <input type="date" id="expenseDate" required>
+          </label>
+          <label>Description
+            <input type="text" id="expenseDescription" placeholder="e.g. Car shampoo, cloths, fuel" required>
+          </label>
+          <label>Category
+            <select id="expenseCategory" required>
+              <option value="Cleaning Products">Cleaning Products</option>
+              <option value="Equipment">Equipment</option>
+              <option value="Transport">Transport</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>Amount (R)
+            <input type="number" id="expenseAmount" min="0" step="0.01" required>
+          </label>
+          <button type="submit" class="admin-primary-btn">Save Expense</button>
+          <p id="expenseStatus" class="admin-message"></p>
+        </form>
+
+        <div class="expense-list-wrap">
+          <table class="expense-table">
+            <thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Amount</th><th></th></tr></thead>
+            <tbody id="expenseBody"></tbody>
+          </table>
+          <div id="expenseEmpty" class="mini-empty" hidden>No expenses recorded for this month.</div>
+        </div>
+      </section>
+
+      <div class="admin-toolbar">
+        <div class="admin-filter-group admin-search-group">
+          <label for="bookingSearch">Search</label>
+          <input type="search" id="bookingSearch" placeholder="Name, phone, service...">
+        </div>
+        <div class="admin-filter-group">
+          <label for="adminDateFilter">Date</label>
+          <input type="date" id="adminDateFilter">
+        </div>
+        <div class="admin-filter-group">
+          <label for="adminStatusFilter">Status</label>
+          <select id="adminStatusFilter">
+            <option value="all">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+        <button type="button" id="clearAdminFilters" class="admin-clear-btn">Clear Filters</button>
+      </div>
+
+      <p id="adminDashboardStatus" class="admin-message admin-dashboard-message" role="status" aria-live="polite"></p>
+
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <div>
+            <h2>Appointments</h2>
+            <p id="bookingResultCount">0 bookings</p>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Vehicle / Item</th>
+                <th>Notes</th>
+                <th>Status</th>
+                <th>Payment</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminBookingsBody"></tbody>
+          </table>
+        </div>
+
+        <div id="adminEmptyState" class="admin-empty" hidden>
+          <div>📅</div>
+          <h3>No bookings found</h3>
+          <p>Try changing your filters or refresh the bookings.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <div id="manualBookingModal" class="receipt-modal" aria-hidden="true">
+      <div class="receipt-modal-card admin-form-modal-card">
+        <button type="button" class="receipt-close" id="manualBookingClose" aria-label="Close">×</button>
+        <span class="admin-eyebrow">Admin Booking</span>
+        <h2>Add a Booking</h2>
+        <p class="receipt-help">Use this when a customer books by phone, WhatsApp or in person.</p>
+
+        <form id="manualBookingForm" class="manual-booking-form">
+          <label>Customer Name
+            <input type="text" id="manualCustomerName" required>
+          </label>
+          <label>Phone Number
+            <input type="tel" id="manualPhone" required>
+          </label>
+          <label class="manual-full">Service
+            <select id="manualService" required></select>
+          </label>
+          <label>Date
+            <input type="date" id="manualDate" required>
+          </label>
+          <label>Time
+            <select id="manualTime" required></select>
+          </label>
+          <label class="manual-full">Vehicle / Item Details
+            <input type="text" id="manualItemDetails" placeholder="e.g. VW Polo, queen mattress">
+          </label>
+          <label class="manual-full">Notes
+            <textarea id="manualNotes" rows="3" placeholder="Optional"></textarea>
+          </label>
+          <label>Status
+            <select id="manualStatus">
+              <option value="Pending">Pending</option>
+              <option value="Confirmed" selected>Confirmed</option>
+            </select>
+          </label>
+          <div class="manual-booking-actions">
+            <button type="submit" id="manualBookingSubmit" class="admin-primary-btn">Save Booking</button>
+          </div>
+          <p id="manualBookingStatus" class="admin-message manual-full"></p>
+        </form>
+      </div>
+    </div>
+
+    <div id="receiptModal" class="receipt-modal" aria-hidden="true">
+      <div class="receipt-modal-card">
+        <button type="button" class="receipt-close" id="receiptClose" aria-label="Close receipt">×</button>
+        <div id="receiptEditor">
+          <span class="admin-eyebrow">Clean Scrub</span>
+          <h2>Create Receipt</h2>
+          <p class="receipt-help">Confirm the amount and payment details before generating the receipt.</p>
+          <div class="receipt-form-grid">
+            <label>Customer<input id="receiptCustomer" type="text" readonly></label>
+            <label>Service<input id="receiptService" type="text" readonly></label>
+            <label>Amount (R)<input id="receiptAmount" type="number" min="0" step="0.01" required></label>
+            <label>Payment Method
+              <select id="receiptPaymentMethod"><option value="Cash">Cash</option><option value="EFT">EFT</option></select>
+            </label>
+            <label>Payment Status
+              <select id="receiptPaymentStatus"><option value="Paid">Paid</option><option value="Unpaid">Unpaid</option></select>
+            </label>
+            <label>Extra / Discount Note<input id="receiptNote" type="text" placeholder="Optional"></label>
+          </div>
+          <button type="button" id="generateReceipt" class="receipt-primary-btn">Generate Receipt</button>
+          <p id="receiptStatus" class="admin-message"></p>
+        </div>
+        <div id="receiptPreview" hidden></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

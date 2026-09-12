@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clean Scrub | Car Wash</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Clean Scrub Logo">
+    <span>Clean Scrub</span>
+  </div>
+
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#booking">Book Now</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Pampering Cars With Love</h1>
+    <p>Professional car wash & detailing in Gqeberha</p>
+    <div class="hero-actions">
+      <a href="#booking" class="hero-btn primary-btn">Book a Slot</a>
+      <button class="hero-btn secondary-btn" onclick="openWhatsApp()">WhatsApp Us</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section about">
+  <div class="about-content blur-bg animate">
+    <h2>About Clean Scrub</h2>
+    <p>
+      Clean Scrub is a proudly local car wash in Gqeberha, dedicated to keeping
+      your vehicle looking its absolute best. We believe a clean car is more
+      than just appearance—it's about care, pride, and attention to detail.
+    </p>
+
+    <p>
+      Our trained team uses safe, high-quality products and proven techniques
+      to protect your paintwork while delivering a spotless finish every time.
+      From quick washes to full valet services, we treat every vehicle as if it
+      were our own.
+    </p>
+
+    <p class="highlight">
+      At Clean Scrub, we don’t just wash cars—we pamper them with love.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Wash & Go</h3>
+      <p>Quick exterior wash</p>
+      <span>R70</span>
+    </div>
+    <div class="card">
+      <h3>Wash & Wipe</h3>
+      <p>Wash, wipe & tyre shine</p>
+      <span>R100 - R120</span>
+    </div>
+    <div class="card">
+      <h3>Wash & Wax</h3>
+      <p>Wash, dry, vacuum, dash, tyre shine</p>
+      <span>R100 - R120</span>
+    </div>
+    <div class="card">
+      <h3>Foam Wash</h3>
+      <p>Scratch-safe colour foam wash</p>
+      <span>R120 – R150</span>
+    </div>
+    <div class="card">
+      <h3>Steam Cleaning</h3>
+      <p>Deep clean & sanitization</p>
+      <span>R100 – R250</span>
+    </div>
+    <div class="card">
+      <h3>Full Valet</h3>
+      <p>Interior & exterior deep clean</p>
+      <span>R700 – R750</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section light">
+  <h2>Extra Services</h2>
+  <ul class="price-list">
+    <li>Seat Cleaning <strong>R400</strong></li>
+    <li>Interior Cleaning <strong>R80</strong></li>
+    <li>Headlight Restore <strong>R200</strong></li>
+    <li>Tire Shine Only <strong>R40</strong></li>
+    <li>Engine Cleaning <strong>R100</strong></li>
+    <li>Vacuum Only <strong>R50</strong></li>
+    <li>Leather Treatment <strong>R50</strong></li>
+    <li>Roof Lining Cleaning <strong>R250</strong></li>
+    <li>Buff & Polish <strong>R650 – R700</strong></li>
+  </ul>
+</section>
+
+<!-- UPHOLSTERY CLEANING -->
+<section id="upholstery" class="section upholstery">
+  <h2>Upholstery & Mattress Cleaning</h2>
+  
+  <div class="loader-container">
+    <div class="couch-wrapper">
+      <div class="couch dirty"></div>
+      <div class="couch clean"></div>
+      <div class="vacuum-nozzle">
+        <div class="hose"></div>
+      </div>
+    </div>
+    <p class="loading-text">Refreshing your upholstery...</p>
+  </div>
+  
+  <p class="section-subtitle">
+    Professional deep cleaning for couches, sofas, mattresses & more.
+  </p>
+
+  <div class="upholstery-grid">
+
+    <!-- COUCHES CARD -->
+    <div class="up-card">
+      <h3>🛋️ Couches</h3>
+      
+      <div class="price-item">
+        <div class="item-title">2 Seater</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R300</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R450</span>
+        </div>
+      </div>
+
+      <div class="price-item">
+        <div class="item-title">3 Seater</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R380</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R560</span>
+        </div>
+      </div>
+
+      <div class="price-item">
+        <div class="item-title">4 Seater</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R460</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R660</span>
+        </div>
+      </div>
+
+      <div class="price-item">
+        <div class="item-title">5 Seater</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R540</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R760</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATTRESS CARD -->
+    <div class="up-card">
+      <h3>🛏️ Mattresses</h3>
+
+      <div class="price-item">
+        <div class="item-title">Single</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R220</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R340</span>
+        </div>
+      </div>
+
+      <div class="price-item">
+        <div class="item-title">3/4</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R260</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R400</span>
+        </div>
+      </div>
+
+      <div class="price-item">
+        <div class="item-title">Double</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R300</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R460</span>
+        </div>
+      </div>
+
+      <div class="price-item">
+        <div class="item-title">King/Queen</div>
+        <div class="price-row">
+          <strong>Standard</strong>
+          <span>R340</span>
+        </div>
+        <div class="price-row">
+          <strong>Deep</strong>
+          <span>R520</span>
+        </div>
+      </div>
+    </div>
+
+   <!-- OTTOMANS CARD -->
+<div class="up-card">
+  <h3>🪑 Ottomans</h3>
+
+  <div class="price-item">
+    <div class="price-row">
+      <strong>Small Ottoman</strong>
+      <span>R80</span>
+    </div>
+    <div class="price-row">
+      <strong>Medium Ottoman</strong>
+      <span>R130</span>
+    </div>
+    <div class="price-row">
+      <strong>Large Ottoman</strong>
+      <span>R180</span>
+    </div>
+    <div class="price-row">
+      <strong>Storage Ottoman (Buttons)</strong>
+      <span>R230</span>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <h2>Our Work</h2>
+
+  <div class="gallery-wrapper">
+
+    <!-- IMAGE GALLERY -->
+    <div class="gallery">
+      <img src="Media (15).jfif" alt="Clean Scrub car wash result 1" onclick="openLightbox(this)">
+      <img src="Media (16).jfif" alt="Clean Scrub car wash result 2" onclick="openLightbox(this)">
+      <img src="Media (17).jfif" alt="Clean Scrub car wash result 3" onclick="openLightbox(this)">
+      <img src="Media (18).jfif" alt="Clean Scrub car wash result 4" onclick="openLightbox(this)">
+      <img src="Media (19).jfif" alt="Clean Scrub car wash result 5" onclick="openLightbox(this)">
+      <img src="Media (21).jfif" alt="Clean Scrub car wash result 6" onclick="openLightbox(this)">
+      <img src="Media (22).jfif" alt="Clean Scrub car wash result 7" onclick="openLightbox(this)">
+      <img src="Media (23).jfif" alt="Clean Scrub car wash result 8" onclick="openLightbox(this)">
+      <img src="Media (24).jfif" alt="Clean Scrub car wash result 9" onclick="openLightbox(this)">
+      <img src="Media (25).jfif" alt="Clean Scrub car wash result 10" onclick="openLightbox(this)">
+      <img src="Media (26).jfif" alt="Clean Scrub car wash result 11" onclick="openLightbox(this)">
+      <img src="Media (27).jfif" alt="Clean Scrub car wash result 12" onclick="openLightbox(this)">
+    </div>
+
+  </div>
+</section>
+
+<!-- IMAGE LIGHTBOX -->
+<div class="lightbox" id="imageLightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" onclick="closeLightbox()" aria-label="Close image">&times;</button>
+  <img id="lightboxImage" src="" alt="Clean Scrub gallery preview">
+</div>
+
+<!-- BOOKING -->
+<section id="booking" class="section booking-section">
+  <div class="booking-shell">
+    <div class="booking-intro">
+      <span class="booking-kicker">Clean Scrub Appointments</span>
+      <h2>Book Your Slot</h2>
+      <p>Choose your service, date and available time. Your booking is saved instantly and your selected slot cannot be taken twice.</p>
+      <div class="booking-note">
+        <span>✓</span> Book online and confirm with Clean Scrub on WhatsApp.
+      </div>
+    </div>
+
+    <form id="bookingForm" class="booking-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="customerName">Full Name</label>
+          <input type="text" id="customerName" name="customerName" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="customerPhone">Cellphone Number</label>
+          <input type="tel" id="customerPhone" name="customerPhone" placeholder="e.g. 082 123 4567" required>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceCategory">Service Type</label>
+          <select id="serviceCategory" name="serviceCategory" required>
+            <option value="">Select service type</option>
+            <option value="car">Car Wash & Detailing</option>
+            <option value="upholstery">Upholstery & Mattress Cleaning</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceSelect">Service</label>
+          <select id="serviceSelect" name="serviceSelect" required disabled>
+            <option value="">Choose a service type first</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bookingDate">Date</label>
+          <input type="date" id="bookingDate" name="bookingDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="bookingTime">Available Time</label>
+          <select id="bookingTime" name="bookingTime" required disabled>
+            <option value="">Choose a date first</option>
+          </select>
+          <small id="slotMessage" class="slot-message">Select a date to view available slots.</small>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label for="itemDetails">Vehicle / Item Details</label>
+          <input type="text" id="itemDetails" name="itemDetails" placeholder="e.g. VW Polo, 3-seater couch, queen mattress">
+        </div>
+
+        <div class="form-group form-group-full">
+          <label for="bookingNotes">Notes <span>(optional)</span></label>
+          <textarea id="bookingNotes" name="bookingNotes" rows="4" placeholder="Anything you would like us to know?"></textarea>
+        </div>
+      </div>
+
+      <div id="bookingSummary" class="booking-summary" hidden>
+        <h3>Booking Summary</h3>
+        <div class="summary-row"><span>Service</span><strong id="summaryService">-</strong></div>
+        <div class="summary-row"><span>Date</span><strong id="summaryDate">-</strong></div>
+        <div class="summary-row"><span>Time</span><strong id="summaryTime">-</strong></div>
+      </div>
+
+      <button type="submit" class="booking-submit" id="bookingSubmit">Confirm Booking</button>
+      <p class="booking-status" id="bookingStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<div class="popup-overlay clean-scrub-popup" id="popup">
+  <div class="popup">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    
+    <h2>Revitalize Your Drive!</h2>
+    <p class="subtitle">Freshness that follows you everywhere with our premium scents.</p>
+
+    <div class="price-circle">
+      <span class="price-title">PRICE</span>
+      <span class="price-amount">R30</span>
+      <span class="price-each">EACH</span>
+    </div>
+
+    <p class="reminder">And don't forget to visit our car wash!</p>
+
+    <button class="popup-btn" onclick="openWhatsAppScents()">Order via WhatsApp</button>
+  </div>
+</div>
+
+<!-- HEARTS CONTAINER -->
+<div class="hearts-container" id="hearts"></div>
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <h2>Contact Us</h2>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="icon">📞</div>
+      <p><a href="tel:+27670626007">067 062 6007</a> | <a href="tel:+27676648789">067 664 8789</a></p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📍</div>
+      <p>26 Paul Kruger, Kensington, Gqeberha</p>
+      <p class="business-hours"><strong>Open daily:</strong> 08:00–15:00</p>
+      
+    </div>
+    <div class="contact-card">
+      <div class="icon">📧</div>
+      <p><a href="mailto:cleanscrubpe@gmail.com">cleanscrubpe@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- GOOGLE MAPS EMBED -->
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.123456789!2d25.602123!3d-33.958123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7e7e7e7e7e7e7e%3A0x123456789abcdef!2s26+Paul+Kruger,+Kensington,+Gqeberha!5e0!3m2!1sen!2sza!4v1705000000000!5m2!1sen!2sza"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- GET DIRECTIONS BUTTON -->
+  <div class="directions-btn-container">
+    <a 
+      href="https://www.google.com/maps/dir/?api=1&destination=26+Paul+Kruger,+Kensington,+Gqeberha" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="directions-btn">
+      🗺️ How to Get There
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Clean Scrub <a href="admin.html" class="admin-footer-link">Staff Admin</a></p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/27670626007" target="_blank" rel="noopener noreferrer">💬</a>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -61,20 +61,20 @@ const services = {
    WHATSAPP BOOKING
    ========================= */
 function openWhatsApp() {
-  const phone = "27670626007";
+  const phone = "27676648789";
   const message = "Hi Clean Scrub, I would like to book a cleaning service.";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
 
 function openWhatsAppScents() {
-  const phone = "27670626007";
+  const phone = "27676648789";
   const message = "Hi Clean Scrub, I would like to order one of your premium car scents for R30.";
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
 }
 
 function openBookingWhatsApp(booking) {
-  const phone = "27670626007";
+  const phone = "27676648789";
   const message = [
     "New Clean Scrub Booking 🚗✨",
     "",

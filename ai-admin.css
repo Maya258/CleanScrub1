@@ -1,0 +1,32 @@
+.cs-ai { --cs-navy:#12334d; --cs-blue:#0aa2dd; background:#f5fbfe; border:1px solid #cde5ef; border-radius:20px; padding:clamp(18px,3vw,32px); margin:20px 0 32px; color:var(--cs-navy); }
+.cs-ai [hidden], .cs-ai[hidden] { display:none !important; }
+.cs-ai * { box-sizing:border-box; }
+.cs-ai h2 { font-size:clamp(24px,3vw,34px); margin:8px 0; }
+.cs-ai h3 { margin:20px 0 10px; }
+.cs-ai p { line-height:1.6; }
+.cs-ai .cs-eyebrow { font-size:12px; letter-spacing:.12em; font-weight:800; }
+.cs-ai .cs-note { font-size:13px; color:#476476; }
+.cs-ai .cs-tabs,.cs-ai .cs-actions,.cs-ai .cs-prompts { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:14px 0; }
+.cs-ai button { appearance:none; cursor:pointer; padding:11px 15px; border:1px solid #bbd6e2; border-radius:10px; background:white; color:var(--cs-navy); font:inherit; font-size:14px; font-weight:650; }
+.cs-ai button:hover { background:#e8f5fc; }
+.cs-ai button[aria-pressed=true], .cs-ai button[type=submit] { background:var(--cs-navy); color:white; border-color:var(--cs-navy); }
+.cs-ai button:disabled { opacity:.5; cursor:not-allowed; }
+.cs-ai :is(button,input,textarea,select):focus-visible { outline:3px solid var(--cs-blue); outline-offset:3px; }
+.cs-ai input,.cs-ai select,.cs-ai textarea { width:100%; padding:11px; border:1px solid #b8d0dc; border-radius:9px; background:white; color:var(--cs-navy); font:inherit; margin:6px 0 10px; }
+.cs-ai textarea { resize:vertical; }
+.cs-ai label { display:block; font-size:14px; font-weight:650; }
+.cs-ai .cs-actions select { width:auto; max-width:100%; margin:0; }
+.cs-ai .cs-form { max-width:700px; padding:18px 0; }
+.cs-ai .cs-checkbox { display:flex; gap:10px; align-items:center; }
+.cs-ai .cs-checkbox input { width:auto; }
+.cs-ai .cs-chat-log { max-height:500px; overflow-y:auto; }
+.cs-ai .cs-bubble { margin:12px 0; padding:17px; border-radius:12px; background:white; border:1px solid #d8e8ef; }
+.cs-ai .cs-bubble:nth-child(odd) { background:#e5f5fc; margin-left:clamp(0px,6vw,70px); }
+.cs-ai .cs-bubble p,.cs-ai .cs-pre { white-space:pre-wrap; overflow-wrap:anywhere; }
+.cs-ai .cs-bubble p { margin:7px 0 0; }
+.cs-ai .cs-art { display:block; width:min(100%,460px); border-radius:14px; margin:20px 0 10px; }
+.cs-ai .cs-email { padding:18px; border:1px solid #cde0ea; border-radius:12px; background:white; margin:14px 0; overflow-wrap:anywhere; }
+.cs-ai .cs-email h4 { margin:0; }
+.cs-ai .cs-email button { margin:4px 8px 4px 0; }
+.cs-ai summary { cursor:pointer; font-weight:700; padding:12px 0; }
+#csState { min-height:24px; font-weight:650; }

@@ -135,6 +135,7 @@
       const result = await response.json(); if (epoch !== generation) return;
       if (!response.ok) throw Error(result.error || 'Chat request failed.');
       if (typeof result.answer !== 'string') throw Error('AI returned no answer.');
+      result.answer = result.answer.replace(/\*\*/g, '');
       history = [...messages, {role:'assistant',content:result.answer.slice(0,4000)}];
       bubble('You', question); bubble('Clean Scrub AI', result.answer);
       lastAnswer = result.answer; $('csQuestion').value = ''; $('csRead').disabled = !window.speechSynthesis;
